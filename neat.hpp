@@ -93,6 +93,11 @@ namespace neat {
             std::string serialize();
             void restore(std::string str);
 
+            void mutateBias(double change_chance, double change_strength);
+            void mutateConnectionWeight(double change_chance, double change_strength);
+            void splitConnection(Connection *connection);
+            void updateLayers();
+
             // Undeclared function, can be added by user 
             void display(int x, int y, int d_width, int d_height, void *renderer);
         private:
@@ -100,12 +105,6 @@ namespace neat {
             int out_size;
 
             bool no_layer_update;
-
-            void mutateBias(double change_chance, double change_strength);
-            void mutateConnectionWeight(double change_chance, double change_strength);
-            void splitConnection(Connection *connection);
-            void updateLayers();
-
             void newNode();
             void newConnection();
             void mutateBias();

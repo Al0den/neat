@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-#include <SDL2/SDL.h>
 
 enum {
     INPUT_NEURON, OUTPUT_NEURON, HIDDEN_NEURON
@@ -57,30 +56,44 @@ class Network {
 
         void addConnection(Node *in, Node *out, double weight);
         void removeConnection(Connection *connection);
-
         void removeNode(Node *node);
+
+        void randomizeNetwork();
+
+        void mutateGenome();
+
+        static double NEW_VALUE_PROBA;
+        static double NEW_CONNECTION_PROBA;
+        static double BIAS_FULL_PROBA;
+        static double BIAS_CHANGE_PROBA;
+        static double BIAS_FULL_RANGE;
+        static double BIAS_SMALL_RANGE;
+        static double WEIGHT_FULL_RANGE;
+        static double WEIGHT_SMALL_RANGE;
+        static double WEIGHT_FULL_PROBA;
+
+        static double ADD_CONNECTION_RATIO;
+        static double SPLIT_CONNECTION_RATIO;
+
+        static double MUT_COUNT;
+        static double MUT_PROBA;
+
+        double *feed_forward(double *inputs);
+        
+        std::string serialize();
+        void restore(std::string str);
+
+    private:
+        int in_size;
+        int out_size;
+
+        bool no_layer_update;
 
         void mutateBias(double change_chance, double change_strength);
         void mutateConnectionWeight(double change_chance, double change_strength);
         void splitConnection(Connection *connection);
         void updateLayers();
 
-        void randomizeNetwork();
-        void mutateGenome();
-
-        int in_size;
-        int out_size;
-
-        bool no_layer_update;
-
-        double *feed_forward(double *inputs);
-
-        void display(int x, int y, int d_width, int d_height, SDL_Renderer *renderer);
-        void custom_renderer(SDL_Renderer *renderer, SDL_Window *window);
-
-        std::string serialize();
-        void restore(std::string str);
-    private:
         void newNode();
         void newConnection();
         void mutateBias();

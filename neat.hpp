@@ -45,6 +45,15 @@ namespace neat {
             std::string serialize();
     };
 
+    typedef struct Pair_s {
+        Node *cur_node;
+        int pos_x;
+        int pos_y;
+        int color_grad;
+
+    } Pair;
+
+
     class Network {
         public:
             Network(int in_size, int out_size, int hidden_size);
@@ -84,6 +93,8 @@ namespace neat {
             std::string serialize();
             void restore(std::string str);
 
+            // Undeclared function, can be added by user 
+            void display(int x, int y, int d_width, int d_height, void *renderer);
         private:
             int in_size;
             int out_size;

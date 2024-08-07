@@ -44,3 +44,8 @@ int main() {
     delete new_n;
 }
 ```
+
+## Credits
+
+- The [NEAT Paper](https://direct.mit.edu/evco/article-abstract/10/2/99/1123/Evolving-Neural-Networks-through-Augmenting?redirectedFrom=fulltext) by researchers at the MIT
+

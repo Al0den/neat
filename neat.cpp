@@ -4,6 +4,8 @@
 #include <cmath>
 #include <assert.h>
 
+using namespace neat;
+
 double Network::SPLIT_CONNECTION_RATIO = 0.05;
 double Network::ADD_CONNECTION_RATIO = 0.8;
 double Network::MUT_PROBA = 0.25;

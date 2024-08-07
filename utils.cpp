@@ -1,5 +1,7 @@
 #include "./utils.hpp"
 
+using namespace neat;
+
 int randint(int min, int max) {
     static std::random_device rd;
     static std::mt19937 gen(rd());
